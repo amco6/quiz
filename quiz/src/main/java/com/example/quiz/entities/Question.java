@@ -1,13 +1,8 @@
 package com.example.quiz.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.Id;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -70,7 +65,7 @@ public class Question {
     @NotNull
     @Length(max = 1)
     @Column(name = "correct_answer")
-    @JsonIgnore
+  //  @JsonIgnore
     private String correctAnswer;
 
     /**

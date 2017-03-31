@@ -3,12 +3,7 @@ package com.example.quiz.controller;
 import com.example.quiz.entities.Quiz;
 import com.example.quiz.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -16,6 +11,7 @@ import java.util.List;
 /**
  * Controller for the quiz game.
  */
+@CrossOrigin
 @RestController
 public class QuizController {
 
@@ -53,6 +49,11 @@ public class QuizController {
     @RequestMapping(value = "/quiz/new", method = RequestMethod.POST)
     public Integer createQuizGame(@RequestBody @Valid final Quiz newQuiz) {
         return quizService.createQuiz(newQuiz).getQuizId();
+    }
+
+
+    @RequestMapping(value = "/quiz/new", method = RequestMethod.OPTIONS)
+    public void postOptions(@RequestBody @Valid final Quiz newQuiz) {
     }
 
     /**
